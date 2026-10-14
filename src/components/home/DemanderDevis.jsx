@@ -90,7 +90,7 @@ export default function DemanderDevis() {
 
     const text = `Bonjour MAALUM,%0A%0AJe souhaite demander un devis gratuit pour un projet en aluminium.%0A%0A📌 *Gamme:* ${rangeName}%0A👤 *Nom:* ${formData.fullName || 'Non spécifié'}%0A📞 *Tél:* ${formData.phone || 'Non spécifié'}%0A📍 *Ville/Wilaya:* ${formData.city || 'Non spécifiée'}%0A🏢 *Type:* ${formData.projectType}%0A📝 *Détails:* ${formData.details || 'Aucun détail'}`;
 
-    window.open(`https://wa.me/213708123381?text=${text}`, '_blank');
+    window.open(`https://wa.me/212708123381?text=${text}`, '_blank');
   };
 
   const resetForm = () => {

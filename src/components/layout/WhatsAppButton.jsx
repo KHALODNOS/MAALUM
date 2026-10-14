@@ -4,7 +4,7 @@ export default function WhatsAppButton() {
   const { t } = useLanguage()
   return (
     <a
-      href="https://wa.me/213708123381"
+      href="https://wa.me/212708123381"
       className="fixed bottom-[30px] right-[30px] bg-[#25d366] text-white px-[1.2rem] py-[0.8rem] rounded-full flex items-center gap-[0.5rem] font-semibold text-[0.95rem] shadow-[0_4px_15px_rgba(37,211,102,0.3)] z-50 no-underline transition-transform hover:scale-105"
       target="_blank"
       rel="noopener noreferrer"

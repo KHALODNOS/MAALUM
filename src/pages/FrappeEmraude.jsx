@@ -86,12 +86,12 @@ export default function EmeraudeProductPage() {
       </div>
 
       {/* PRODUCT SUB-NAVBAR */}
-      <header className="sticky top-[95px] z-40 bg-[#0b0c10]/95 backdrop-blur-md border-b border-gray-800/80 border-t border-t-gray-700/50 px-6 py-3 transition-all mt-4 mb-2">
+      <header className="sticky top-[130px] sm:top-[95px] z-40 bg-[#0b0c10]/95 backdrop-blur-md border-b border-gray-800/80 border-t border-t-gray-700/50 px-3 sm:px-6 py-2.5 sm:py-3 transition-all mt-2 mb-2">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <span className="w-2.5 h-6 bg-[#00FFFF] rounded-full inline-block shadow-[0_0_12px_rgba(0,255,255,0.5)]"></span>
             <div>
-              <h1 className="text-lg font-bold tracking-wider text-white uppercase font-mono">EMERAUDE FRAPPE</h1>
+              <h1 className="text-sm sm:text-lg font-bold tracking-wider text-white uppercase font-mono">EMERAUDE FRAPPE</h1>
               <p className="text-[10px] text-gray-400 font-mono tracking-widest uppercase">{p('subNavSubtitle')}</p>
             </div>
           </div>
@@ -131,9 +131,9 @@ export default function EmeraudeProductPage() {
 
 
       <main className="relative z-10">
-        <div className="space-y-32 pt-8 transition-all duration-700">
+        <div className="space-y-16 sm:space-y-32 pt-6 sm:pt-8 transition-all duration-700">
           {/* 3. SECTION 1 — LA FENÊTRE EN ALUMINIUM */}
-          <section id="overview" className="scroll-mt-24 max-w-7xl mx-auto px-6">
+          <section id="overview" className="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6">
             <div className="border-t border-gray-800/80 pt-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               {/* Left Column: Text & Features */}
               <div className="lg:col-span-6 space-y-6">
@@ -142,7 +142,7 @@ export default function EmeraudeProductPage() {
                   <span>{p('overview.badge')}</span>
                 </div>
 
-                <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
                   {p('overview.title')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFFF] via-cyan-300 to-teal-200">{p('overview.titleHighlight')}</span>
                 </h2>
 
@@ -198,7 +198,7 @@ export default function EmeraudeProductPage() {
           </section>
 
           {/* 4. SECTION 2 — LA COUPE DU PROFILÉ ALUMINIUM */}
-          <section id="system" className="scroll-mt-24 max-w-7xl mx-auto px-6">
+          <section id="system" className="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6">
             <div className="border-t border-gray-800/80 pt-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               {/* Left Column (Image 2: product2.jpeg - 3D Technical Cutaway) */}
               <div className="lg:col-span-6 order-2 lg:order-1">
@@ -228,7 +228,7 @@ export default function EmeraudeProductPage() {
                   <span>{p('system.badge')}</span>
                 </div>
 
-                <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
                   {p('system.title')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFFF] via-cyan-300 to-teal-200">{p('system.titleHighlight')}</span>
                 </h2>
 
@@ -267,7 +267,7 @@ export default function EmeraudeProductPage() {
 
 
           {/* 5. PROFILES SECTION */}
-          <section id="profiles" className="scroll-mt-24 max-w-7xl mx-auto px-6">
+          <section id="profiles" className="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6">
             <div className="border-t border-gray-800 pt-16 space-y-8">
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div className="space-y-2 max-w-2xl">
@@ -339,7 +339,7 @@ export default function EmeraudeProductPage() {
           </section>
 
           {/* 6. ACCESSORIES SECTION */}
-          <section id="accessories" className="scroll-mt-24 max-w-7xl mx-auto px-6">
+          <section id="accessories" className="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6">
             <div className="border-t border-gray-800 pt-16 space-y-8">
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div className="space-y-2 max-w-2xl">
@@ -518,7 +518,7 @@ export default function EmeraudeProductPage() {
           </section>
 
           {/* 7. ORIGINAL TECHNICAL DOCUMENTATION */}
-          <section id="documentation" className="scroll-mt-24 max-w-7xl mx-auto px-6">
+          <section id="documentation" className="scroll-mt-24 max-w-7xl mx-auto px-4 sm:px-6">
             <div className="border-t border-gray-800 pt-16 space-y-8">
               <div className="space-y-2 max-w-2xl">
                 <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-[#00FFFF]/10 border border-[#00FFFF]/30 text-[#00FFFF] text-xs font-mono uppercase">
@@ -645,10 +645,10 @@ export default function EmeraudeProductPage() {
         lightboxImage && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-lg">
             <div className="relative w-full max-w-5xl h-[85vh] flex flex-col bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden shadow-2xl">
-              <div className="flex items-center justify-between px-6 py-4 border-b border-gray-800 bg-gray-900/80">
+              <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-800 bg-gray-900/80">
                 <div className="flex items-center space-x-3">
                   <Eye className="w-5 h-5 text-emerald-400" />
-                  <span className="text-sm font-mono text-white font-bold">{lightboxTitle || p('lightbox.defaultTitle')}</span>
+                  <span className="text-sm font-mono text-white font-bold truncate max-w-[140px] sm:max-w-none">{lightboxTitle || p('lightbox.defaultTitle')}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <a
@@ -678,7 +678,7 @@ export default function EmeraudeProductPage() {
                 />
               </div>
 
-              <div className="px-6 py-3 border-t border-gray-800 bg-gray-900/80 text-xs font-mono text-gray-400 flex items-center justify-between">
+              <div className="px-4 sm:px-6 py-3 border-t border-gray-800 bg-gray-900/80 text-xs font-mono text-gray-400 flex flex-wrap items-center justify-between gap-2">
                 <span>{p('lightbox.zoomLabel')}</span>
                 <button
                   onClick={() => setLightboxImage(null)}

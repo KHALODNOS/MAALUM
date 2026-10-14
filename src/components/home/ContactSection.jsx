@@ -226,7 +226,7 @@ export default function ContactSection() {
                   <span>Facebook</span>
                 </a>
                 <a
-                  href="https://wa.me/213708123381"
+                  href="https://wa.me/212708123381"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-3.5 py-2.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500 border border-emerald-500/30 text-emerald-400 hover:text-black font-mono text-xs font-black flex items-center gap-2 transition-all duration-300 hover:-translate-y-0.5 shadow-sm"

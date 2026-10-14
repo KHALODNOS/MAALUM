@@ -302,7 +302,7 @@ export default function BesoinDaide() {
               </a>
 
               <a
-                href="https://wa.me/213708123381"
+                href="https://wa.me/212708123381"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/[0.05] hover:bg-white/10 border border-white/10 text-white font-mono text-xs tracking-wider transition-all duration-300 hover:border-emerald-500/40"

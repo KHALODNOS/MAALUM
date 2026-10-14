@@ -96,7 +96,7 @@ function TimelineItem({ year, titleKey, descKey, t, delay, align = 'right' }) {
   return (
     <div
       ref={ref}
-      className="relative flex items-start gap-6"
+      className="relative flex items-start gap-4 sm:gap-6"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateX(0)' : `translateX(${align === 'right' ? '-20px' : '20px'})`,
@@ -104,7 +104,7 @@ function TimelineItem({ year, titleKey, descKey, t, delay, align = 'right' }) {
       }}
     >
       {/* Year bubble */}
-      <div className="shrink-0 w-16 h-16 rounded-full border border-emerald-500/30 bg-[#0a0a0a] flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.1)] z-10">
+      <div className="shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-emerald-500/30 bg-[#0a0a0a] flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.1)] z-10">
         <span className="font-grotesk font-black text-emerald-400 text-sm leading-none">{year}</span>
       </div>
       {/* Content */}
@@ -164,7 +164,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/80 via-transparent to-transparent" />
 
         {/* Hero content */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20 pt-36">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pb-14 sm:pb-20 pt-32 sm:pt-36">
           <div
             className="max-w-2xl"
             style={{
@@ -184,14 +184,14 @@ export default function AboutPage() {
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-black font-grotesk tracking-tight text-white leading-none mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black font-grotesk tracking-tight text-white leading-none mb-6">
               {t('about.hero.title')}
             </h1>
-            <p className="text-gray-300 text-lg font-light leading-relaxed max-w-xl mb-10">
+            <p className="text-gray-300 text-base sm:text-lg font-light leading-relaxed max-w-xl mb-8 sm:mb-10">
               {t('about.hero.subtitle')}
             </p>
 
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <a
                 href="#notre-histoire"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-mono font-black text-[11px] uppercase tracking-widest transition-all duration-300 shadow-[0_0_24px_rgba(16,185,129,0.4)] hover:shadow-[0_0_40px_rgba(16,185,129,0.6)] hover:-translate-y-0.5 group"
@@ -228,15 +228,15 @@ export default function AboutPage() {
           transition: 'opacity 0.7s ease, transform 0.7s ease',
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-white/[0.06]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06]">
           {[
             { target: 15, suffix: '+', labelKey: 'about.stats.years'    },
             { target: 500,suffix: '+', labelKey: 'about.stats.projects' },
             { target: 98, suffix: '%', labelKey: 'about.stats.delays'   },
             { target: 24, suffix: '/7',labelKey: 'about.stats.support'  },
           ].map(({ target, suffix, labelKey }) => (
-            <div key={labelKey} className="flex flex-col items-center justify-center py-10 gap-1.5">
-              <span className="text-4xl font-black font-grotesk text-emerald-400">
+            <div key={labelKey} className="flex flex-col items-center justify-center py-8 sm:py-10 gap-1.5 bg-[#0a0a0a]">
+              <span className="text-3xl sm:text-4xl font-black font-grotesk text-emerald-400">
                 <Counter target={target} suffix={suffix} />
               </span>
               <span className="text-[10px] font-mono text-gray-600 uppercase tracking-widest text-center leading-tight px-3">
@@ -250,8 +250,8 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════
           NOTRE HISTOIRE — split layout
       ════════════════════════════════════════════ */}
-      <section id="notre-histoire" className="py-28 px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <section id="notre-histoire" className="py-16 sm:py-28 px-4 sm:px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-24 items-center">
 
           {/* Left — image collage */}
           <div
@@ -274,13 +274,13 @@ export default function AboutPage() {
             </div>
 
             {/* Floating badge — founded */}
-            <div className="absolute -bottom-6 -right-6 bg-[#0f1a14] border border-emerald-500/30 rounded-2xl p-5 shadow-[0_24px_60px_rgba(0,0,0,0.6)]">
+            <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-[#0f1a14] border border-emerald-500/30 rounded-2xl p-4 sm:p-5 shadow-[0_24px_60px_rgba(0,0,0,0.6)]">
               <p className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest mb-1">{t('about.founded')}</p>
               <p className="text-4xl font-black font-grotesk text-white leading-none">2009</p>
             </div>
 
             {/* Floating badge — location */}
-            <div className="absolute -top-6 -left-0 md:-left-6 bg-[#111] border border-white/10 rounded-2xl px-4 py-3 flex items-center gap-3 shadow-xl">
+            <div className="absolute -top-4 left-2 sm:-top-6 sm:-left-0 md:-left-6 bg-[#111] border border-white/10 rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2 sm:gap-3 shadow-xl">
               <MapPin className="w-4 h-4 text-emerald-400 shrink-0" />
               <div>
                 <p className="text-[10px] font-mono text-gray-600 uppercase tracking-widest">{t('about.location')}</p>
@@ -334,7 +334,7 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════
           NOS VALEURS
       ════════════════════════════════════════════ */}
-      <section className="py-20 px-6 max-w-7xl mx-auto">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
         {/* Divider */}
         <div className="flex items-center gap-4 mb-16">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -354,7 +354,7 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════
           TIMELINE
       ════════════════════════════════════════════ */}
-      <section className="py-20 px-6 max-w-4xl mx-auto">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 max-w-4xl mx-auto">
         <div className="flex items-center gap-4 mb-16">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           <span className="text-[10px] font-mono text-gray-600 uppercase tracking-[0.25em]">{t('about.timeline.badge')}</span>
@@ -365,9 +365,9 @@ export default function AboutPage() {
         </h2>
 
         {/* Timeline list */}
-        <div className="relative pl-8">
+        <div className="relative pl-4 sm:pl-8">
           {/* Vertical line */}
-          <div className="absolute left-8 top-8 bottom-8 w-px bg-gradient-to-b from-emerald-500/40 via-emerald-500/15 to-transparent" />
+          <div className="absolute left-4 sm:left-8 top-8 bottom-8 w-px bg-gradient-to-b from-emerald-500/40 via-emerald-500/15 to-transparent" />
 
           <div className="space-y-10">
             {TIMELINE.map(item => (
@@ -380,8 +380,8 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════
           CONTACT STRIP
       ════════════════════════════════════════════ */}
-      <section className="py-20 px-6 max-w-7xl mx-auto">
-        <div className="rounded-3xl border border-emerald-500/20 bg-gradient-to-br from-emerald-950/40 to-[#0a0a0a] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+        <div className="rounded-3xl border border-emerald-500/20 bg-gradient-to-br from-emerald-950/40 to-[#0a0a0a] p-6 sm:p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
           <div className="space-y-3 text-center md:text-left">
             <p className="text-xs font-mono text-emerald-400 uppercase tracking-widest">{t('about.contact.eyebrow')}</p>
             <h2 className="text-3xl md:text-4xl font-black font-grotesk text-white leading-tight">

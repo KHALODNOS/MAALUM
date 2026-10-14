@@ -80,7 +80,7 @@ export default function Navbar() {
             className="p-1 rounded-md text-gray-400 hover:text-blue-400 hover:bg-white/5 transition-colors">
             <FacebookIcon className="w-3.5 h-3.5" />
           </a>
-          <a href="https://wa.me/213708123381" target="_blank" rel="noopener noreferrer" title="WhatsApp Direct"
+          <a href="https://wa.me/212708123381" target="_blank" rel="noopener noreferrer" title="WhatsApp Direct"
             className="p-1 rounded-md text-gray-400 hover:text-emerald-400 hover:bg-white/5 transition-colors">
             <WhatsAppIcon className="w-3.5 h-3.5" />
           </a>
@@ -186,7 +186,7 @@ export default function Navbar() {
               className="flex-1 bg-white/5 border border-white/15 text-white font-mono text-xs font-bold py-2.5 rounded-xl hover:bg-white/10 transition-all text-center">
               {language === 'fr' ? 'EN' : 'FR'}
             </button>
-            <a href="https://wa.me/213708123381" target="_blank" rel="noreferrer"
+            <a href="https://wa.me/212708123381" target="_blank" rel="noreferrer"
               className="flex-1 flex items-center justify-center gap-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs py-2.5 rounded-xl hover:bg-emerald-500/20 transition-all">
               <WhatsAppIcon className="w-4 h-4" />
               WhatsApp

@@ -143,7 +143,7 @@ export default function Footer() {
                 <span>Facebook</span>
               </a>
               <a
-                href="https://wa.me/213708123381"
+                href="https://wa.me/212708123381"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-2.5 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500 border border-emerald-500/20 text-emerald-400 hover:text-black text-[11px] font-mono font-bold flex items-center gap-1.5 transition-all"
