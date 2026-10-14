@@ -116,7 +116,7 @@ export default function NosSolutions() {
   const [headerRef, headerVisible] = useReveal(0.1);
 
   return (
-    <section id="solutions" className="py-28 px-6 max-w-7xl mx-auto">
+    <section id="solutions" className="py-16 sm:py-28 px-4 sm:px-6 max-w-7xl mx-auto">
 
       {/* ── Section divider ── */}
       <div className="flex items-center gap-4 mb-16">
@@ -149,7 +149,7 @@ export default function NosSolutions() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent" />
 
         {/* Content overlay */}
-        <div className="absolute inset-0 flex flex-col justify-center px-10 md:px-16">
+        <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-10 md:px-16">
           <div className="max-w-xl">
             {/* Eyebrow */}
             <div className="flex items-center gap-2 mb-5">
@@ -162,7 +162,7 @@ export default function NosSolutions() {
               </span>
             </div>
 
-            <h2 className="text-4xl md:text-[3.25rem] font-black font-grotesk tracking-tight text-white leading-none mb-5">
+            <h2 className="text-2xl sm:text-4xl md:text-[3.25rem] font-black font-grotesk tracking-tight text-white leading-none mb-5">
               {t('solutions.title')}
             </h2>
             <p className="text-gray-400 text-base font-light leading-relaxed mb-8 max-w-md">

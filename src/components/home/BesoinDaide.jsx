@@ -64,7 +64,7 @@ export default function BesoinDaide() {
   };
 
   return (
-    <section id="faq" className="py-28 px-6 max-w-7xl mx-auto relative">
+    <section id="faq" className="py-16 sm:py-28 px-4 sm:px-6 max-w-7xl mx-auto relative">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-emerald-500/5 blur-[140px] pointer-events-none rounded-full" />
 
@@ -197,7 +197,7 @@ export default function BesoinDaide() {
                     >
                       <div className="flex items-center gap-3">
                         <span className={`w-2 h-2 rounded-full transition-colors ${isOpen ? 'bg-emerald-400 shadow-[0_0_8px_#10b981]' : 'bg-gray-600'}`} />
-                        <span className="text-base md:text-lg font-bold font-grotesk tracking-tight text-white leading-snug">
+                        <span className="text-sm sm:text-base md:text-lg font-bold font-grotesk tracking-tight text-white leading-snug">
                           {item.q}
                         </span>
                       </div>

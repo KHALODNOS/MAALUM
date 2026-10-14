@@ -87,7 +87,7 @@ export default function PourquoiNous() {
   const [divRef, divVisible] = useReveal(0.1);
 
   return (
-    <section id="why-us" className="py-28 px-6 max-w-7xl mx-auto">
+    <section id="why-us" className="py-16 sm:py-28 px-4 sm:px-6 max-w-7xl mx-auto">
 
       {/* ── Section divider ── */}
       <div className="flex items-center gap-4 mb-16">

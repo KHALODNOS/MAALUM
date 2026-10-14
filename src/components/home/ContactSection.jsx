@@ -61,7 +61,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact-info" className="py-28 px-6 max-w-7xl mx-auto relative">
+    <section id="contact-info" className="py-16 sm:py-28 px-4 sm:px-6 max-w-7xl mx-auto relative">
       {/* Glow Effect */}
       <div className="absolute top-1/3 left-10 w-[450px] h-[450px] bg-emerald-500/5 blur-[150px] pointer-events-none rounded-full" />
 

@@ -21,7 +21,7 @@ export default function HomePage() {
       <HeroSection />
 
       {/* ─── PRODUCTS SECTION ─── */}
-      <section id="products" className="py-28 px-6 max-w-7xl mx-auto">
+      <section id="products" className="py-16 sm:py-28 px-4 sm:px-6 max-w-7xl mx-auto">
 
         {/* Section divider */}
         <div className="flex items-center gap-4 mb-16">

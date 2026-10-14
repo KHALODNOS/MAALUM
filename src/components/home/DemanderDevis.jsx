@@ -130,7 +130,7 @@ export default function DemanderDevis() {
   ];
 
   return (
-    <section id="contact" className="py-28 px-6 max-w-7xl mx-auto relative">
+    <section id="contact" className="py-16 sm:py-28 px-4 sm:px-6 max-w-7xl mx-auto relative">
       {/* Ambient background blur */}
       <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-emerald-500/5 blur-[160px] pointer-events-none rounded-full" />
 

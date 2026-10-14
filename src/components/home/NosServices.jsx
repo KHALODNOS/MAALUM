@@ -142,7 +142,7 @@ function ServiceRow({ num, icon: Icon, accent, glow, titleKey, descKey, t, delay
         className="overflow-hidden transition-all duration-400"
         style={{ maxHeight: open ? '200px' : '0', opacity: open ? 1 : 0 }}
       >
-        <p className="pb-6 pl-[calc(2rem+2.5rem+1.25rem)] pr-6 text-sm text-gray-400 font-light leading-relaxed">
+        <p className="pb-6 pl-6 sm:pl-[calc(2rem+2.5rem+1.25rem)] pr-6 text-sm text-gray-400 font-light leading-relaxed">
           {t(descKey)}
         </p>
       </div>
@@ -157,7 +157,7 @@ export default function NosServices() {
   const [processRef, processVisible] = useReveal(0.1);
 
   return (
-    <section id="services" className="py-28 px-6 max-w-7xl mx-auto">
+    <section id="services" className="py-16 sm:py-28 px-4 sm:px-6 max-w-7xl mx-auto">
 
       {/* ── Section divider ── */}
       <div className="flex items-center gap-4 mb-16">
@@ -174,7 +174,7 @@ export default function NosServices() {
         {/* LEFT — sticky header + CTA */}
         <div
           ref={headerRef}
-          className="lg:sticky lg:top-28 flex flex-col gap-8"
+          className="lg:sticky lg:top-32 flex flex-col gap-8"
           style={{
             opacity: headerVisible ? 1 : 0,
             transform: headerVisible ? 'translateY(0)' : 'translateY(24px)',
@@ -266,7 +266,7 @@ export default function NosServices() {
         </div>
 
         {/* Steps */}
-        <div className="relative grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="relative grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
           {/* Connector line (lg only) */}
           <div className="hidden lg:block absolute top-7 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-emerald-500/25 to-transparent z-0" />
 
