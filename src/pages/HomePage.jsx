@@ -16,7 +16,7 @@ export default function HomePage() {
   const { t } = useLanguage()
 
   return (
-    <div className="font-inter bg-[#0a0a0a] text-white min-h-screen">
+    <div className="font-inter bg-[#0a0a0a] text-white min-h-screen w-full overflow-x-hidden relative">
       <Navbar />
       <HeroSection />
 
