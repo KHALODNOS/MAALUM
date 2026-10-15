@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
+import { sendEmail, default as EMAILJS_CONFIG } from '../../services/emailService';
 import {
   Mail,
   Phone,
@@ -11,7 +12,8 @@ import {
   Building2,
   ExternalLink,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  AlertCircle
 } from 'lucide-react';
 import { InstagramIcon, TikTokIcon, FacebookIcon, WhatsAppIcon } from '../common/SocialIcons';
 
@@ -45,19 +47,65 @@ export default function ContactSection() {
 
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
+  const [sendError, setSendError] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const getSubjectLabel = (key) => {
+    switch (key) {
+      case 'sav':
+        return 'Suivi de commande / SAV';
+      case 'catalog':
+        return 'Demande de documentation';
+      case 'partner':
+        return 'Partenariat / Architecte';
+      case 'general':
+      default:
+        return 'Renseignement général';
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSending(true);
-    setTimeout(() => {
-      setIsSending(false);
+    setSendError('');
+
+    const subjectLabel = getSubjectLabel(formData.subject);
+
+    const templateParams = {
+      // Direct matches for contact.html:
+      subject: subjectLabel,
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      message: formData.message,
+
+      // Complementary and fallback variables:
+      fullName: formData.name,
+      full_name: formData.name,
+      from_name: formData.name,
+      reply_to: formData.email,
+      subject_key: formData.subject,
+    };
+
+    try {
+      await sendEmail({
+        templateId: EMAILJS_CONFIG.templateSecondId,
+        templateParams,
+      });
+
       setIsSent(true);
-    }, 1000);
+    } catch (err) {
+      console.error("Erreur lors de l'envoi du formulaire de contact:", err);
+      setSendError(
+        "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer ou nous joindre directement via WhatsApp ou téléphone."
+      );
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -300,6 +348,7 @@ export default function ContactSection() {
                 <button
                   onClick={() => {
                     setFormData({ subject: 'general', name: '', phone: '', email: '', message: '' });
+                    setSendError('');
                     setIsSent(false);
                   }}
                   className="px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-mono font-black text-xs uppercase tracking-widest transition-all"
@@ -357,7 +406,7 @@ export default function ContactSection() {
                       required
                       value={formData.phone}
                       onChange={handleInputChange}
-                      placeholder="0550 00 00 00"
+                      placeholder="06 00 00 00 00"
                       className="w-full bg-white/[0.03] border border-white/[0.08] focus:border-emerald-500 focus:bg-white/[0.06] rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all font-inter"
                     />
                   </div>
@@ -394,6 +443,14 @@ export default function ContactSection() {
                     className="w-full bg-white/[0.03] border border-white/[0.08] focus:border-emerald-500 focus:bg-white/[0.06] rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all font-inter resize-none"
                   />
                 </div>
+
+                {/* Error Banner */}
+                {sendError && (
+                  <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 flex items-start gap-3 text-xs leading-relaxed">
+                    <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                    <span>{sendError}</span>
+                  </div>
+                )}
 
                 {/* Submit button */}
                 <button

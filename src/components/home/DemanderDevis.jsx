@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { sendEmail } from '../../services/emailService';
+import { sendEmail, default as EMAILJS_CONFIG } from '../../services/emailService';
 import {
   FileText,
   Send,
@@ -114,6 +114,7 @@ export default function DemanderDevis() {
 
     try {
       await sendEmail({
+        templateId: EMAILJS_CONFIG.templateFirstId,
         templateParams,
       });
 

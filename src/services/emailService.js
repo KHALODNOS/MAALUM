@@ -5,6 +5,7 @@ const EMAILJS_CONFIG = {
   serviceId: import.meta.env.VITE_SERVICE_ID || 'service_b0zgqeu',
   publicKey: import.meta.env.VITE_PUBLIC_KEY || 'eQm_dwGSOAFcBIVW7',
   templateFirstId: import.meta.env.VITE_TEMPLATE_FIRST_ID || 'template_zhx1nq5',
+  templateSecondId: import.meta.env.VITE_TEMPLATE_SECOND_ID || 'template_b3ybl0s',
 };
 
 /**
