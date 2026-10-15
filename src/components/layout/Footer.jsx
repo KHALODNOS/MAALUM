@@ -107,10 +107,15 @@ export default function Footer() {
                 <Mail className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <span>maalumaluminium.contact@gmail.com</span>
               </a>
-              <div className="flex items-center gap-2 text-gray-300">
+              <a
+                href="https://maps.app.goo.gl/RixAd3rHEYJi5aZt7?g_st=iw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-300 hover:text-emerald-400 transition-colors"
+              >
                 <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>Zone Industrielle, Algérie</span>
-              </div>
+                <span>9C2W+Q4R MAALUM, Inezgane</span>
+              </a>
             </div>
 
             {/* Social media links */}

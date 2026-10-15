@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
+import { sendEmail } from '../../services/emailService';
 import {
   FileText,
   Send,
@@ -17,7 +18,8 @@ import {
   Layers,
   Maximize2,
   Building,
-  RotateCcw
+  RotateCcw,
+  AlertCircle
 } from 'lucide-react';
 
 // ─── Reveal hook ─────────────────────────────────────────────────────────────
@@ -55,6 +57,7 @@ export default function DemanderDevis() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [refNumber, setRefNumber] = useState('');
+  const [submitError, setSubmitError] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -67,17 +70,57 @@ export default function DemanderDevis() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError('');
 
-    // Simulate API call / quote generation
-    setTimeout(() => {
-      const generatedRef = `MAAL-${Math.floor(1000 + Math.random() * 9000)}`;
+    const generatedRef = `MAAL-${Math.floor(1000 + Math.random() * 9000)}`;
+
+    const rangeName =
+      selectedRange === 'coulisse'
+        ? 'ÉMÉRAUDE COULISSE'
+        : selectedRange === 'frappe'
+        ? 'ÉMÉRAUDE FRAPPE'
+        : 'Projet Sur-Mesure';
+
+    const templateParams = {
+      ref_number: generatedRef,
+      selected_range: rangeName,
+      full_name: formData.fullName,
+      from_name: formData.fullName,
+      name: formData.fullName,
+      phone: formData.phone,
+      email: formData.email || 'Non spécifié',
+      reply_to: formData.email || '',
+      city: formData.city,
+      project_type: formData.projectType,
+      details: formData.details || 'Aucun détail précisé',
+      message: `Nouvelle demande de devis (${generatedRef}) :
+- Gamme: ${rangeName}
+- Client: ${formData.fullName}
+- Téléphone: ${formData.phone}
+- Email: ${formData.email || 'Non renseigné'}
+- Ville: ${formData.city}
+- Type de projet: ${formData.projectType}
+- Détails: ${formData.details || 'Aucun'}`,
+    };
+
+    try {
+      await sendEmail({
+        templateParams,
+      });
+
       setRefNumber(generatedRef);
-      setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 1200);
+    } catch (err) {
+      console.error('Erreur lors de l\'envoi EmailJS:', err);
+      setSubmitError(
+        "Une erreur est survenue lors de l'envoi du formulaire. Veuillez réessayer ou nous contacter directement via WhatsApp."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleWhatsAppSend = () => {
@@ -88,7 +131,7 @@ export default function DemanderDevis() {
         ? 'ÉMÉRAUDE FRAPPE'
         : 'Projet Sur-Mesure';
 
-    const text = `Bonjour MAALUM,%0A%0AJe souhaite demander un devis gratuit pour un projet en aluminium.%0A%0A📌 *Gamme:* ${rangeName}%0A👤 *Nom:* ${formData.fullName || 'Non spécifié'}%0A📞 *Tél:* ${formData.phone || 'Non spécifié'}%0A📍 *Ville/Wilaya:* ${formData.city || 'Non spécifiée'}%0A🏢 *Type:* ${formData.projectType}%0A📝 *Détails:* ${formData.details || 'Aucun détail'}`;
+    const text = `Bonjour MAALUM,%0A%0AJe souhaite demander un devis gratuit pour un projet en aluminium.%0A%0A📌 *Gamme:* ${rangeName}%0A👤 *Nom:* ${formData.fullName || 'Non spécifié'}%0A📞 *Tél:* ${formData.phone || 'Non spécifié'}%0A📍 *Ville:* ${formData.city || 'Non spécifiée'}%0A🏢 *Type:* ${formData.projectType}%0A📝 *Détails:* ${formData.details || 'Aucun détail'}`;
 
     window.open(`https://wa.me/212708123381?text=${text}`, '_blank');
   };
@@ -103,6 +146,7 @@ export default function DemanderDevis() {
       details: '',
     });
     setAttachedFile(null);
+    setSubmitError('');
     setIsSubmitted(false);
   };
 
@@ -246,15 +290,20 @@ export default function DemanderDevis() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-gray-400">
+              <a
+                href="https://maps.app.goo.gl/RixAd3rHEYJi5aZt7?g_st=iw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 group"
+              >
+                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-gray-400 group-hover:scale-110 group-hover:bg-emerald-500/10 transition-all">
                   <MapPin className="w-4 h-4 text-emerald-400" />
                 </div>
                 <div>
                   <div className="text-[10px] text-gray-500 uppercase">Siège & Ateliers</div>
-                  <div className="text-white font-bold">Zone Industrielle, Algérie</div>
+                  <div className="text-white font-bold group-hover:text-emerald-400 transition-colors">9C2W+Q4R MAALUM, Inezgane</div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <div className="pt-4 border-t border-white/[0.07] flex items-center justify-between text-[11px] font-mono text-gray-400">
@@ -436,7 +485,7 @@ export default function DemanderDevis() {
                         required
                         value={formData.city}
                         onChange={handleInputChange}
-                        placeholder="Ex: Alger, Oran, Sétif..."
+                        placeholder="Ex: Agadir, Marrakech, Casablanca..."
                         className="w-full bg-white/[0.03] border border-white/[0.08] focus:border-emerald-500 focus:bg-white/[0.06] rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 outline-none transition-all font-inter"
                       />
                     </div>
@@ -508,6 +557,14 @@ export default function DemanderDevis() {
                   </div>
                 </div>
 
+                {/* ── Error Banner ── */}
+                {submitError && (
+                  <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 flex items-start gap-3 text-xs leading-relaxed">
+                    <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                    <span>{submitError}</span>
+                  </div>
+                )}
+
                 {/* ── Submit Buttons ── */}
                 <div className="pt-4 border-t border-white/[0.08] space-y-3">
                   <button
@@ -516,7 +573,7 @@ export default function DemanderDevis() {
                     className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-mono font-black text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_0_30px_rgba(16,185,129,0.35)] hover:shadow-[0_0_50px_rgba(16,185,129,0.6)] hover:-translate-y-0.5 disabled:opacity-50"
                   >
                     {isSubmitting ? (
-                      <span>{t('devisForm.labels.submitting') || "Traitement en cours..."}</span>
+                      <span>{t('devisForm.labels.submitting') || "Envoi en cours..."}</span>
                     ) : (
                       <>
                         <Send className="w-4 h-4" />

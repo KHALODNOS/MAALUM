@@ -162,19 +162,24 @@ export default function ContactSection() {
               </a>
 
               {/* Address */}
-              <div className="p-4 rounded-2xl border border-white/[0.06] bg-white/[0.02] flex items-center gap-4 hover:border-emerald-500/30 transition-all">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+              <a
+                href="https://maps.app.goo.gl/RixAd3rHEYJi5aZt7?g_st=iw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 rounded-2xl border border-white/[0.06] bg-white/[0.02] flex items-center gap-4 hover:border-emerald-500/40 hover:bg-white/[0.04] transition-all group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0 group-hover:scale-110 transition-transform">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-[10px] font-mono text-gray-500 uppercase">
                     {t('contactSection.info.address') || "Adresse Siège & Usine"}
                   </div>
-                  <div className="text-sm font-bold text-white font-grotesk">
-                    Zone Industrielle, Algérie
+                  <div className="text-sm font-bold text-white font-grotesk group-hover:text-emerald-400 transition-colors">
+                    9C2W+Q4R MAALUM ALUMINIUM, Inezgane
                   </div>
                 </div>
-              </div>
+              </a>
 
               {/* Hours */}
               <div className="p-4 rounded-2xl border border-white/[0.06] bg-white/[0.02] flex items-center gap-4 hover:border-emerald-500/30 transition-all">
@@ -244,14 +249,19 @@ export default function ContactSection() {
               {/* Styled Dark Map Simulation */}
               <iframe
                 title="MAALUM Location Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.807873919013!2d3.0588!3d36.7538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb2f000000000%3A0x0!2zMzbCsDQ1JzEzLjciTiAzwrAwMyczMS43IkU!5e0!3m2!1sfr!2sdz!4v1620000000000!5m2!1sfr!2sdz"
+                src="https://maps.google.com/maps?q=9C2W%2BQ4R+MAALUM+ALUMINIUM%2C+Inezgane&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 className="w-full h-full grayscale invert opacity-75 hover:opacity-100 hover:grayscale-0 transition-all duration-500"
                 loading="lazy"
               />
-              <div className="absolute top-3 left-3 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 text-[10px] font-mono text-emerald-400 flex items-center gap-1.5">
+              <a
+                href="https://maps.app.goo.gl/RixAd3rHEYJi5aZt7?g_st=iw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute top-3 left-3 bg-black/80 hover:bg-emerald-500/20 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 hover:border-emerald-500/40 text-[10px] font-mono text-emerald-400 flex items-center gap-1.5 transition-all group-hover:scale-105"
+              >
                 <MapPin className="w-3 h-3 text-emerald-400 animate-bounce" />
-                <span>Siège MAALUM Aluminium</span>
-              </div>
+                <span>Ouvrir sur Google Maps ↗</span>
+              </a>
             </div>
           </div>
 

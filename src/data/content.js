@@ -305,64 +305,49 @@ export const translations = {
     },
     about: {
       badge: "Notre histoire",
-      founded: "Fondée en",
+      founded: "Basée à",
       location: "Siège social",
       hero: {
         title: "À PROPOS\nDE MAALUM",
-        subtitle: "Depuis 2009, MAALUM conçoit et fabrique des systèmes en aluminium haut de gamme qui transforment les espaces de vie et de travail à travers toute l'Algérie.",
+        subtitle: "Basée à Agadir, MAALUM est spécialisée dans les profilés aluminium de haute qualité et leurs accessoires, conçus pour sublimer vos espaces au Maroc.",
         cta1: "Notre histoire",
         cta2: "Nous contacter"
       },
-      stats: {
-        years: "Années d'expertise",
-        projects: "Projets réalisés",
-        delays: "Délais respectés",
-        support: "Support client"
-      },
       story: {
         eyebrow: "Notre ADN",
-        title: "Une vision\nbâtie sur\nl'excellence",
-        p1: "MAALUM est née d'une ambition simple mais exigeante : offrir à chaque client une menuiserie aluminium qui allie beauté, performance et durabilité. Fondée en 2009, la société s'est imposée comme une référence du secteur en Algérie.",
-        p2: "Mus par une passion pour la précision et l'innovation, nos ingénieurs et artisans travaillent chaque jour à la conception de systèmes coulissants, à frappe et sur mesure qui répondent aux exigences les plus élevées de l'architecture moderne.",
-        p3: "Aujourd'hui, MAALUM est présente sur les chantiers les plus ambitieux du pays, portant avec fierté les valeurs d'excellence, de rigueur et de proximité client qui ont fait sa réputation.",
-        c1: "Profils aluminium certifiés et testés en laboratoire",
-        c2: "Équipes de techniciens formés et habilités",
-        c3: "Chaîne de production contrôlée de bout en bout",
-        c4: "Service après-vente réactif et engage"
+        title: "Une expertise\ndédiée aux\nprofilés aluminium",
+        p1: "Située à Agadir, MAALUM s'est imposée comme une référence de confiance au Maroc, spécialisée dans la distribution et la fourniture de profilés aluminium et d'accessoires de qualité supérieure.",
+        p2: "Notre mission est d'offrir aux professionnels et aux particuliers des solutions fiables, modernes et durables, répondant parfaitement aux standards exigeants de la menuiserie aluminium au Maroc.",
+        p3: "Implantée au cœur du Maroc à Agadir, MAALUM met l'accent sur la qualité irréprochable de ses profilés, la variété de ses accessoires et un service de conseil personnalisé.",
+        c1: "Profilés aluminium de haute précision et conformes aux normes",
+        c2: "Gamme complète d'accessoires pour tous types de menuiseries",
+        c3: "Contrôle qualité rigoureux sur l'ensemble de nos produits",
+        c4: "Accompagnement technique et écoute attentive de nos clients au Maroc"
       },
       values: {
         badge: "Nos valeurs",
         title: "CE QUI NOUS DÉFINIT",
         excellence: {
           title: "EXCELLENCE",
-          desc: "Chaque profil, chaque joint, chaque assemblage est contrôlé selon des standards de qualité qui ne souffrent aucun compromis."
+          desc: "Chaque profilé et chaque accessoire est sélectionné selon des critères de qualité rigoureux sans compromis."
         },
         precision: {
           title: "PRÉCISION",
-          desc: "La menuiserie aluminium exige une rigueur micrométrique. Nos équipes sont formées aux techniques les plus pointues du secteur."
+          desc: "La menuiserie aluminium exige une précision millimétrique. Nos solutions garantissent un ajustement parfait."
         },
         innovation: {
           title: "INNOVATION",
-          desc: "Nous investissons continuellement dans les dernières technologies de fabrication pour vous offrir des systèmes toujours plus performants."
+          desc: "Nous proposons des systèmes de profilés modernes et évolutifs, adaptés aux tendances architecturales actuelles."
         },
         client: {
           title: "PROXIMITÉ CLIENT",
-          desc: "De la première prise de contact au service après-vente, chaque client bénéficie d'un interlocuteur dédié et disponible."
+          desc: "Présents à Agadir au service de l'ensemble du marché marocain, nous cultivons une relation de confiance et de proximité avec chaque partenaire."
         }
-      },
-      timeline: {
-        badge: "Notre parcours",
-        title: "15 ANS D'HISTOIRE",
-        y2009: { title: "Fondation de MAALUM", desc: "Création de la société avec une vision : proposer une menuiserie aluminium alliant technique et esthétique haut de gamme." },
-        y2013: { title: "Lancement de la gamme EMERAUDE", desc: "Introduction de la série EMERAUDE, système coulissant premium qui devient rapidement la référence du marché." },
-        y2017: { title: "Expansion nationale", desc: "MAALUM étend sa présence à travers tout le territoire algérien et signe ses premiers grands contrats institutionnels." },
-        y2021: { title: "Modernisation de l'atelier", desc: "Investissement dans de nouveaux équipements de découpe et d'assemblage numérique pour atteindre une précision encore plus fine." },
-        y2024: { title: "MAALUM aujourd'hui", desc: "Plus de 500 projets réalisés, une équipe de 50 experts et une ambition continue d'être le partenaire aluminium numéro 1 en Algérie." }
       },
       contact: {
         eyebrow: "Travaillons ensemble",
         title: "Prêt à démarrer\nvotre projet ?",
-        subtitle: "Notre équipe est disponible pour répondre à toutes vos questions et vous accompagner vers la solution idéale.",
+        subtitle: "Notre équipe à Agadir est disponible pour répondre à toutes vos questions et vous orienter vers les meilleurs profilés et accessoires.",
         call: "Nous appeler",
         email: "Envoyer un message"
       }
@@ -867,64 +852,49 @@ export const translations = {
     },
     about: {
       badge: "Our story",
-      founded: "Founded in",
+      founded: "Based in",
       location: "Headquarters",
       hero: {
         title: "ABOUT\nMAALUM",
-        subtitle: "Since 2009, MAALUM has designed and manufactured premium aluminum systems that transform living and working spaces across Algeria.",
+        subtitle: "Based in Agadir, MAALUM specializes in premium aluminum profiles and accessories, tailored for quality architecture across Morocco.",
         cta1: "Our story",
         cta2: "Contact us"
       },
-      stats: {
-        years: "Years of expertise",
-        projects: "Projects completed",
-        delays: "On-time delivery",
-        support: "Client support"
-      },
       story: {
         eyebrow: "Our DNA",
-        title: "A vision built\non excellence",
-        p1: "MAALUM was born from a simple yet demanding ambition: to offer every client aluminum joinery that combines beauty, performance and durability. Founded in 2009, the company has established itself as an industry reference in Algeria.",
-        p2: "Driven by a passion for precision and innovation, our engineers and craftsmen work every day to design sliding, casement and bespoke systems that meet the highest demands of modern architecture.",
-        p3: "Today, MAALUM is present on the most ambitious construction sites in the country, proudly upholding the values of excellence, rigour and client proximity that built its reputation.",
-        c1: "Laboratory-certified and tested aluminum profiles",
-        c2: "Trained and qualified technician teams",
-        c3: "End-to-end controlled production chain",
-        c4: "Responsive and committed after-sales service"
+        title: "Expertise dedicated\nto aluminum profiles",
+        p1: "Located in Agadir, MAALUM is a trusted provider in Morocco specializing in top-tier aluminum profiles and specialized accessories.",
+        p2: "Our mission is to supply professionals and clients with reliable, modern, and durable solutions that adhere to the highest standards of aluminum joinery in Morocco.",
+        p3: "Operating across Morocco from Agadir, MAALUM emphasizes uncompromising profile quality, an extensive range of accessories, and personalized support.",
+        c1: "High-precision aluminum profiles adhering to strict standards",
+        c2: "Comprehensive selection of accessories for all joinery systems",
+        c3: "Rigorous quality control across our entire product range",
+        c4: "Dedicated technical guidance and responsive service throughout Morocco"
       },
       values: {
         badge: "Our values",
         title: "WHAT DEFINES US",
         excellence: {
           title: "EXCELLENCE",
-          desc: "Every profile, every gasket, every assembly is inspected against quality standards that allow no compromise."
+          desc: "Every profile and accessory is chosen to fulfill exacting standards without compromise."
         },
         precision: {
           title: "PRECISION",
-          desc: "Aluminum joinery demands micrometric rigour. Our teams are trained in the most advanced techniques in the industry."
+          desc: "Aluminum systems require millimetric precision. Our solutions ensure seamless fit and smooth operation."
         },
         innovation: {
           title: "INNOVATION",
-          desc: "We continuously invest in the latest manufacturing technologies to deliver ever higher-performing systems."
+          desc: "We offer modern, evolving profile configurations adapted to contemporary architectural needs."
         },
         client: {
           title: "CLIENT PROXIMITY",
-          desc: "From the first contact to after-sales service, every client benefits from a dedicated, available point of contact."
+          desc: "Based in Agadir serving clients across Morocco, we build enduring partnerships founded on trust and attentiveness."
         }
-      },
-      timeline: {
-        badge: "Our journey",
-        title: "15 YEARS OF HISTORY",
-        y2009: { title: "MAALUM founded", desc: "Company created with a single vision: aluminum joinery combining technique and premium aesthetics." },
-        y2013: { title: "EMERAUDE range launched", desc: "Introduction of the EMERAUDE series, a premium sliding system that quickly becomes the market reference." },
-        y2017: { title: "National expansion", desc: "MAALUM extends its presence across the entire Algerian territory and signs its first major institutional contracts." },
-        y2021: { title: "Workshop modernisation", desc: "Investment in new digital cutting and assembly equipment to achieve even greater precision." },
-        y2024: { title: "MAALUM today", desc: "Over 500 completed projects, a team of 50 experts and a continued ambition to be Algeria's #1 aluminum partner." }
       },
       contact: {
         eyebrow: "Let's work together",
         title: "Ready to start\nyour project?",
-        subtitle: "Our team is available to answer all your questions and guide you toward the ideal solution.",
+        subtitle: "Our team in Agadir is ready to answer your questions and assist you with our aluminum profiles and accessories.",
         call: "Call us",
         email: "Send a message"
       }

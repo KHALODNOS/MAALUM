@@ -104,3 +104,4 @@ export const TECHNICAL_DOCS = [
   { id: 'accessories1', title: 'Accessoires — 01', subtitle: 'Joints, feutrines, bouchons et clapets d\'évacuation', image: IMAGES.accessories1 },
   { id: 'accessories2', title: 'Accessoires — 02', subtitle: 'Galets, équerres d\'assemblage et serrures de fermeture', image: IMAGES.accessories2 },
 ];
+

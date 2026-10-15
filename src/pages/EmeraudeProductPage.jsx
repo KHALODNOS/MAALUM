@@ -61,6 +61,10 @@ export default function EmeraudeProductPage() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (!infoUnlocked) return;
     const sections = ['overview', 'system', 'profiles', 'dimensions', 'accessories', 'documentation'];
 

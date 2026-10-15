@@ -23,25 +23,6 @@ function useReveal(threshold = 0.1) {
   return [ref, visible];
 }
 
-// ─── Animated counter ─────────────────────────────────────────────────────────
-function Counter({ target, suffix = '', duration = 1800 }) {
-  const [count, setCount] = useState(0);
-  const [ref, visible] = useReveal(0.2);
-  const started = useRef(false);
-  useEffect(() => {
-    if (!visible || started.current) return;
-    started.current = true;
-    const start = performance.now();
-    const step = (now) => {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setCount(Math.round(eased * target));
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [visible, target, duration]);
-  return <span ref={ref}>{count}{suffix}</span>;
-}
 
 // ─── Value card ───────────────────────────────────────────────────────────────
 function ValueCard({ icon: Icon, accent, delay, titleKey, descKey, t }) {
@@ -90,52 +71,22 @@ function ValueCard({ icon: Icon, accent, delay, titleKey, descKey, t }) {
   );
 }
 
-// ─── Timeline item ────────────────────────────────────────────────────────────
-function TimelineItem({ year, titleKey, descKey, t, delay, align = 'right' }) {
-  const [ref, visible] = useReveal();
-  return (
-    <div
-      ref={ref}
-      className="relative flex items-start gap-4 sm:gap-6"
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? 'translateX(0)' : `translateX(${align === 'right' ? '-20px' : '20px'})`,
-        transition: `opacity 0.6s ease ${delay}, transform 0.6s ease ${delay}`,
-      }}
-    >
-      {/* Year bubble */}
-      <div className="shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-emerald-500/30 bg-[#0a0a0a] flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.1)] z-10">
-        <span className="font-grotesk font-black text-emerald-400 text-sm leading-none">{year}</span>
-      </div>
-      {/* Content */}
-      <div className="pt-3 space-y-1.5 flex-1">
-        <h4 className="text-base font-black font-mono text-white tracking-tight">{t(titleKey)}</h4>
-        <p className="text-sm text-gray-500 font-light leading-relaxed">{t(descKey)}</p>
-      </div>
-    </div>
-  );
-}
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function AboutPage() {
   const { t } = useLanguage();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [heroRef, heroVisible] = useReveal(0.05);
   const [storyRef, storyVisible] = useReveal(0.1);
-  const [statsRef, statsVisible] = useReveal(0.1);
 
   const VALUES = [
     { icon: Award,   accent: '#10b981', delay: '0ms',   titleKey: 'about.values.excellence.title', descKey: 'about.values.excellence.desc' },
     { icon: Target,  accent: '#6366f1', delay: '100ms', titleKey: 'about.values.precision.title',  descKey: 'about.values.precision.desc'  },
     { icon: Eye,     accent: '#f59e0b', delay: '200ms', titleKey: 'about.values.innovation.title', descKey: 'about.values.innovation.desc' },
     { icon: Heart,   accent: '#ec4899', delay: '300ms', titleKey: 'about.values.client.title',     descKey: 'about.values.client.desc'     },
-  ];
-
-  const TIMELINE = [
-    { year: '2009', titleKey: 'about.timeline.y2009.title', descKey: 'about.timeline.y2009.desc', delay: '0ms'   },
-    { year: '2013', titleKey: 'about.timeline.y2013.title', descKey: 'about.timeline.y2013.desc', delay: '100ms' },
-    { year: '2017', titleKey: 'about.timeline.y2017.title', descKey: 'about.timeline.y2017.desc', delay: '200ms' },
-    { year: '2021', titleKey: 'about.timeline.y2021.title', descKey: 'about.timeline.y2021.desc', delay: '300ms' },
-    { year: '2024', titleKey: 'about.timeline.y2024.title', descKey: 'about.timeline.y2024.desc', delay: '400ms' },
   ];
 
   return (
@@ -216,36 +167,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════
-          STATS BAR
-      ════════════════════════════════════════════ */}
-      <div
-        ref={statsRef}
-        className="border-y border-white/[0.07] bg-white/[0.02]"
-        style={{
-          opacity: statsVisible ? 1 : 0,
-          transform: statsVisible ? 'translateY(0)' : 'translateY(20px)',
-          transition: 'opacity 0.7s ease, transform 0.7s ease',
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06]">
-          {[
-            { target: 15, suffix: '+', labelKey: 'about.stats.years'    },
-            { target: 500,suffix: '+', labelKey: 'about.stats.projects' },
-            { target: 98, suffix: '%', labelKey: 'about.stats.delays'   },
-            { target: 24, suffix: '/7',labelKey: 'about.stats.support'  },
-          ].map(({ target, suffix, labelKey }) => (
-            <div key={labelKey} className="flex flex-col items-center justify-center py-8 sm:py-10 gap-1.5 bg-[#0a0a0a]">
-              <span className="text-3xl sm:text-4xl font-black font-grotesk text-emerald-400">
-                <Counter target={target} suffix={suffix} />
-              </span>
-              <span className="text-[10px] font-mono text-gray-600 uppercase tracking-widest text-center leading-tight px-3">
-                {t(labelKey)}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* ════════════════════════════════════════════
           NOTRE HISTOIRE — split layout
@@ -273,18 +194,12 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 to-transparent rounded-3xl" />
             </div>
 
-            {/* Floating badge — founded */}
-            <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-[#0f1a14] border border-emerald-500/30 rounded-2xl p-4 sm:p-5 shadow-[0_24px_60px_rgba(0,0,0,0.6)]">
-              <p className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest mb-1">{t('about.founded')}</p>
-              <p className="text-4xl font-black font-grotesk text-white leading-none">2009</p>
-            </div>
-
             {/* Floating badge — location */}
             <div className="absolute -top-4 left-2 sm:-top-6 sm:-left-0 md:-left-6 bg-[#111] border border-white/10 rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2 sm:gap-3 shadow-xl">
               <MapPin className="w-4 h-4 text-emerald-400 shrink-0" />
               <div>
                 <p className="text-[10px] font-mono text-gray-600 uppercase tracking-widest">{t('about.location')}</p>
-                <p className="text-sm font-black font-mono text-white">Algérie</p>
+                <p className="text-sm font-black font-mono text-white">Agadir, Maroc</p>
               </div>
             </div>
           </div>
@@ -348,32 +263,6 @@ export default function AboutPage() {
           {VALUES.map(v => (
             <ValueCard key={v.titleKey} {...v} t={t} />
           ))}
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════
-          TIMELINE
-      ════════════════════════════════════════════ */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 max-w-4xl mx-auto">
-        <div className="flex items-center gap-4 mb-16">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-          <span className="text-[10px] font-mono text-gray-600 uppercase tracking-[0.25em]">{t('about.timeline.badge')}</span>
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-        </div>
-        <h2 className="text-3xl md:text-4xl font-black font-grotesk tracking-tight text-white text-center mb-14">
-          {t('about.timeline.title')}
-        </h2>
-
-        {/* Timeline list */}
-        <div className="relative pl-4 sm:pl-8">
-          {/* Vertical line */}
-          <div className="absolute left-4 sm:left-8 top-8 bottom-8 w-px bg-gradient-to-b from-emerald-500/40 via-emerald-500/15 to-transparent" />
-
-          <div className="space-y-10">
-            {TIMELINE.map(item => (
-              <TimelineItem key={item.year} {...item} t={t} />
-            ))}
-          </div>
         </div>
       </section>
 
