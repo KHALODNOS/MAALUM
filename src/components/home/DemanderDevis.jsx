@@ -85,17 +85,23 @@ export default function DemanderDevis() {
         : 'Projet Sur-Mesure';
 
     const templateParams = {
-      ref_number: generatedRef,
+      // Direct variable matches with index.html
+      selectedRange: rangeName,
+      fullName: formData.fullName,
+      phone: formData.phone,
+      email: formData.email || 'Non spécifié',
+      city: formData.city,
+      projectType: formData.projectType,
+      details: formData.details || 'Aucun détail précisé',
+
+      // Fallbacks for snake_case and standard EmailJS names
       selected_range: rangeName,
       full_name: formData.fullName,
       from_name: formData.fullName,
       name: formData.fullName,
-      phone: formData.phone,
-      email: formData.email || 'Non spécifié',
-      reply_to: formData.email || '',
-      city: formData.city,
       project_type: formData.projectType,
-      details: formData.details || 'Aucun détail précisé',
+      reply_to: formData.email || '',
+      ref_number: generatedRef,
       message: `Nouvelle demande de devis (${generatedRef}) :
 - Gamme: ${rangeName}
 - Client: ${formData.fullName}
